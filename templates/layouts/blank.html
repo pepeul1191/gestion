@@ -1,6 +1,10 @@
 {% csrf_token %}
 <html>
-<head></head>
+<head>
+	<title>XD</title>
+</head>
+{% load staticfiles %}
+<link href="{% static 'index.css' %}" rel="stylesheet">
 <body>
 	<h1>Header</h1>
 	{% block content %}{% endblock %}
