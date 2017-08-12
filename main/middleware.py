@@ -5,5 +5,5 @@ class MyMiddleware:
 
     def __call__(self, request):
         response = self.get_response(request)
-        response['Server'] = 'Ubuntu; Python; DJango'
+        response['Server'] = 'Ubuntu; Python; '
         return response
