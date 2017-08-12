@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from sqlalchemy import Column, Integer, String
+from main.database import Base
 
-from django.db import models
-
-class Categoria(models.Model):
-	class Meta:
-		db_table = 'categorias'
-	nombre = models.CharField(max_length=25)
+class Categoria(Base):
+	__tablename__ = 'categorias'
+	id = Column(Integer, primary_key=True)
+	nombre = Column(String)
