@@ -3,5 +3,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-engine = create_engine('sqlite:///db/db_libros.db')
-conn = engine.connect()
+engine_libros = create_engine('sqlite:///db/db_libros.db')
+engine_accesos = create_engine('sqlite:///db/db_accesos.db')
+engine_ubicaciones = create_engine('sqlite:///db/db_ubicaciones.db')

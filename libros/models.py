@@ -1,8 +1,37 @@
 # -*- coding: utf-8 -*-
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Table, Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship
 from main.database import Base
-
+# http://docs.sqlalchemy.org/en/latest/orm/basic_relationships.html
 class Categoria(Base):
 	__tablename__ = 'categorias'
-	id = Column(Integer, primary_key=True)
+	id = Column(Integer, primary_key = True)
 	nombre = Column(String)
+
+class Autor(Base):
+	__tablename__ = 'autores'
+	id = Column(Integer, primary_key = True)
+	nombre = Column(String)
+
+class Extension(Base):
+	__tablename__ = 'extensiones'
+	id = Column(Integer, primary_key = True)
+	nombre = Column(String)
+
+class TipoDocumento(Base):
+	__tablename__ = 'tipo_documentos'
+	id = Column(Integer, primary_key = True)
+	nombre = Column(String)
+
+class Documento(Base):
+	__tablename__ = 'documentos'
+	id = Column(Integer, primary_key = True)
+	titulo = Column(String)
+	paginas = Column(Integer)
+	tipo_id = Column(Integer, ForeignKey('tipo_documento.id'))
+	extension_id = Column(Integer, ForeignKey('extension.id'))
+
+documentos_categorias = Table('documentos_categorias', Base.metadata,
+    Column('documento_id', Integer, ForeignKey('documento.id')),
+    Column('categoria_id', Integer, ForeignKey('categoria.id'))
+)
