@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 import json
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.core.serializers import serialize
 from django.shortcuts import render
 from sqlalchemy.sql import select
 from main.database import engine_libros
