@@ -1,0 +1,18 @@
+{% extends 'layouts/site.html' %}
+{% block css %}
+	<link href="{{helper.get('STATICS_URL')}}dist/assets/styles.min.css" rel="stylesheet" type="text/css"/>
+	<style type="text/css"></style>
+{% endblock %}
+{% block js_top %}
+	<script type="text/javascript">
+		var BASE_URL = '{{helper.get('BASE_URL')}}';
+      var STATICS_URL  = '{{helper.get("STATICS_URL")}}';
+      var MODULOS_JSON = JSON.parse('{{menu|safe}}');
+      var DATA = JSON.parse('{{data|safe}}'); 
+	</script>
+{% endblock %}
+{% block js_bottom %}
+	<script type="text/javascript" src="{{helper.get('STATICS_URL')}}dist/app.min.js"></script>
+{% endblock %}
+{% block content %}
+{% endblock %}
