@@ -4,3 +4,4 @@
 package-lock.json
 static/dist/
 .DS_Store
+db.sqlite3
