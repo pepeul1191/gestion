@@ -9,6 +9,7 @@
         "node": ">=0.10"
     },
     "dependencies": {
+        "bower": "^1.8.2",
         "express": "~3.4.7",
         "gulp-livereload": "^3.8.1",
         "handlebars": "^4.0.10",
