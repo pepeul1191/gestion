@@ -17,7 +17,7 @@
 <div class="container content">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-                <form class="reg-page" action="login/acceder" method="post">
+                <form class="reg-page" action="{% raw %}{{BASE_URL}}{% endraw %}login/acceder/" method="post">
                     <div class="reg-header">
                         <h2>Bienvenido</h2>
                     </div>
@@ -39,6 +39,8 @@
                     <h4 id="temp">Olvidó su contraseña?</h4>
                     <p>No se preocupe, <a class="color-green" href="#">haga click aquí</a> para reenviar su contraseña.</p>
                     <a href="http://softweb.pe">Powered by: Software Web Perú ©</a>
+                    {% raw %}<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">{% endraw %}
+                    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
                 </form>
             </div>
         </div><!--/row-->
