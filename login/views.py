@@ -7,16 +7,16 @@ from main.helper import Helper
 
 def index(request):
     if request.method == 'GET':
-        data = {"mensaje" : False}
+        data = {'mensaje' : False}
         context = {'helper' : Helper(), 'data':  json.dumps(data),'menu' : '', 'items' : ''}
         return render(request, 'login/index.html', context)
     else:
-        return redirect(Helper().get("BASE_URL") + "error/404")
+        return redirect(Helper().get('BASE_URL') + 'error/access/404')
 
 def acceder(request):
     if request.method == 'POST':
-        data = {"mensaje" : True}
+        data = {'mensaje' : True}
         context = {'helper' : Helper(), 'data':  json.dumps(data),'menu' : '', 'items' : ''}
         return render(request, 'login/index.html', context)
     else:
-        return redirect(Helper().get("BASE_URL") + "error/404")
+        return redirect(Helper().get('BASE_URL') + 'error/access/404')
