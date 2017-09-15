@@ -1,18 +1,13 @@
-{% csrf_token %}
 <html>
 <head>
-	<title>XD</title>
-</head>
-{% load staticfiles %}
-<link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-<link href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
-<link href="{% static 'index.css' %}" rel="stylesheet">
-{% block css %}{% endblock %}
+	<meta charset="UTF-8">
+	<title>Servicio de Monta</title>
+	<link rel="shortcut icon" href="{{helper.get('STATICS_URL')}}favicon.ico" type="image/x-icon">
+	{% block css %}{% endblock %}
+	{% block js_top %}{% endblock %}
 <body>
-	<h1>Header</h1>
+	<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 	{% block content %}{% endblock %}
-	<h1>Footer</h1>
-	<script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
 	{% block js %}{% endblock %}
 </body>
 </html>

@@ -1,0 +1,47 @@
+{% extends 'layouts/blank.html' %}
+{% block css %}
+	<link href="{{helper.get('STATICS_URL')}}dist/login.min.css" rel="stylesheet" type="text/css"/>
+	<style type="text/css"></style>
+{% endblock %}
+{% block js_top %}
+	<script type="text/javascript">
+		var BASE_URL = '{{helper.get("BASE_URL")}}';
+      	var STATICS_URL  = '{{helper.get("STATICS_URL")}}';
+		var MODULOS_JSON = JSON.parse('{{menu|safe}}');
+		var ITEMS_JSON = JSON.parse('{{items|safe}}');
+      	var DATA = JSON.parse('{{data|safe}}'); 
+	</script>
+{% endblock %}
+{% block js_bottom %}
+	<script type="text/javascript" src="{{helper.get('STATICS_URL')}}dist/login.min.js"></script>
+{% endblock %}
+{% block content %}
+<div class="container content">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                <form class="reg-page" action="login/acceder" method="post">
+                    <div class="reg-header">
+                        <h2>Bienvenido</h2>
+                    </div>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" placeholder="usuario" class="form-control" name="usuario">
+                    </div>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" placeholder="contraseña" class="form-control" name="contrasenia">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn-u pull-right" type="submit" style="width: 100%;  margin-bottom: 15px">Ingresar</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <h4 id="temp">Olvidó su contraseña?</h4>
+                    <p>No se preocupe, <a class="color-green" href="#">haga click aquí</a> para reenviar su contraseña.</p>
+                    <a href="http://softweb.pe">Powered by: Software Web Perú ©</a>
+                </form>
+            </div>
+        </div><!--/row-->
+     </div>
+{% endblock %}

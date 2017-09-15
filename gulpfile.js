@@ -11,12 +11,12 @@ var BASE_URL = 'http://localhost:8000/static/';
 var DESTINO = 'static/dist/';
 var MEDIA = 'static/'
 
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------
 function errorLog(error){
     console.error.bind(error);
     this.emit('end');
 }
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------
 
 gulp.task('fonts', function() {
     gulp.src([MEDIA + 'bower_components/font-awesome/fonts/*', MEDIA + 'bower_components/bootstrap/fonts/*', MEDIA + 'assets/fontastic/fonts/*'])
@@ -44,7 +44,7 @@ gulp.task('layout-js', function() {
 
 gulp.task('layout', ['fonts', 'layout-css', 'layout-js']);
 
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------
 
 gulp.task('error-css', function() {
       gulp.src([
@@ -58,6 +58,37 @@ gulp.task('error-css', function() {
       .pipe(replace('../../../font-awesome/fonts/', BASE_URL + 'dist/assets/'))
       .pipe(replace('../../../assets/fontastic/fonts/', 'assets/'))
       .pipe(gulp.dest(DESTINO));
+});
+
+gulp.task('login', function(){
+    gulp.start('fonts', 'layout-css', 'layout-js');
+    gulp.src([
+            DESTINO + 'libs.min.js',  
+            MEDIA + 'layouts/site.js',  
+            //MEDIA + 'models/usuario.js', 
+            //MEDIA + 'views/home.js', 
+            //MEDIA + 'views/buscar.js', 
+            //MEDIA + 'views/contacto.js',  
+            //MEDIA + 'views/registro.js', 
+            //MEDIA + 'views/_form_registro.js', 
+            //MEDIA + 'views/login.js', 
+            //MEDIA + 'views/_form_login.js' , 
+            //MEDIA + 'views/_form_contrasenia.js' ,
+            //MEDIA + 'routes/router.js'
+        ])
+      .pipe(uglify())
+      .pipe(plumber())
+      .pipe(concatJs('login.min.js'))
+      .pipe(gulp.dest(DESTINO))//.pipe(gulp.dest(DESTINO + 'home'))
+      .pipe(livereload());
+
+    gulp.src([
+        DESTINO + 'styles.min.css',
+        MEDIA + 'assets/login/index.css'])
+    .pipe(plumber())
+    .pipe(concatCss('login.min.css'))
+    //.pipe(minifyCss())
+    .pipe(gulp.dest(DESTINO));
 });
 
 gulp.task('app', function(){
