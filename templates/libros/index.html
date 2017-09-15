@@ -1,13 +1,18 @@
-{% extends 'layouts/blank.html' %}
-{% block js %}
-	{% load staticfiles %}
-	<script type="text/javascript" src="{% static 'dist/app.min.js' %}"></script>
-{% endblock %}
+{% extends 'layouts/site.html' %}
 {% block css %}
-	{% load staticfiles %}
-	<link href="{% static 'dist/assets/styles.min.css' %}" rel="stylesheet">
+	<link href="{{helper.get('STATICS_URL')}}dist/styles.min.css" rel="stylesheet" type="text/css"/>
+	<style type="text/css"></style>
+{% endblock %}
+{% block js_top %}
+	<script type="text/javascript">
+		var BASE_URL = '{{helper.get('BASE_URL')}}';
+      	var STATICS_URL  = '{{helper.get("STATICS_URL")}}';
+      	var MODULOS_JSON = JSON.parse('{{menu|safe}}');
+      	var DATA = JSON.parse('{{data|safe}}'); 
+	</script>
+{% endblock %}
+{% block js_bottom %}
+	<script type="text/javascript" src="{{helper.get('STATICS_URL')}}dist/app.min.js"></script>
 {% endblock %}
 {% block content %}
-	<h4>Body</h4>
-	<h5>{{saludo}}</h5>
 {% endblock %}

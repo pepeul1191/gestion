@@ -7,9 +7,16 @@ from django.shortcuts import render
 from sqlalchemy.sql import select
 from main.database import engine_libros
 from .models import Categoria
+from main.helper import Helper
 
 def index(request):
-	context = {'saludo': 'hola mundo'}
+	menu = [
+				 {'url' : '#/', 'nombre' : 'Home'},
+             {'url' : '#/buscar', 'nombre' : 'Buscar'},
+             {'url' : '#/contacto', 'nombre' : 'Contacto'}
+      ]
+	data = ''
+	context = {'helper' : Helper(), 'data': data,'menu' : json.dumps(menu)}
 	return render(request, 'libros/index.html', context)
 
 def rest(request):
