@@ -14,8 +14,9 @@ def index(request):
 		{'url' : 'accesos', 'nombre' : 'Accesos'},
         {'url' : 'libros', 'nombre' : 'Libros'},
     ]
+	#perl : [{"subtitulo":"Usuarios","items":[{"item":"Listado","url":"accesos/usuarios"}]},{"subtitulo":"Menu","items":[{"item":"Listado","url":"accesos/menus"}]},{"subtitulo":"Acceso a Funciones","items":[{"url":"accesos/permisos","item":"Listado de permisos"},{"item":"Listado de roles","url":"accesos/roles"}]},{"subtitulo":"Logs","items":[{"item":"Logs de errores","url":"accesos/log/errores"},{"url":"accesos/log/accesos","item":"Logs de acceso"},{"item":"Logs de operaciones","url":"accesos/log/operaciones"}]}]
 	items = [
-		
+		[{"subtitulo":"Usuarios","items":[{"item":"Listado","url":"accesos/usuarios"}]},{"subtitulo":"Menu","items":[{"item":"Listado","url":"accesos/menus"}]},{"subtitulo":"Acceso a Funciones","items":[{"url":"accesos/permisos","item":"Listado de permisos"},{"item":"Listado de roles","url":"accesos/roles"}]},{"subtitulo":"Logs","items":[{"item":"Logs de errores","url":"accesos/log/errores"},{"url":"accesos/log/accesos","item":"Logs de acceso"},{"item":"Logs de operaciones","url":"accesos/log/operaciones"}]}]
 	]
 	data = ''
 	context = {'helper' : Helper(), 'data': data,'menu' : json.dumps(menu), 'items' : json.dumps(items)}

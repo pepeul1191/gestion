@@ -7,7 +7,8 @@
 	<script type="text/javascript">
 		var BASE_URL = '{{helper.get("BASE_URL")}}';
       	var STATICS_URL  = '{{helper.get("STATICS_URL")}}';
-      	var MODULOS_JSON = JSON.parse('{{menu|safe}}');
+		var MODULOS_JSON = JSON.parse('{{menu|safe}}');
+		var ITEMS_JSON = JSON.parse('{{items|safe}}');
       	var DATA = JSON.parse('{{data|safe}}'); 
 	</script>
 {% endblock %}
