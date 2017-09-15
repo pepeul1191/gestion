@@ -25,7 +25,7 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('layout-css', function() {
-      gulp.src([MEDIA + 'bower_components/bootstrap/dist/css/bootstrap.min.css', MEDIA + 'bower_components/font-awesome/css/font-awesome.min.css', MEDIA + 'assets/fontastic/styles.css', MEDIA + 'assets/site/css/styles.css', MEDIA + 'assets/login/index.css'])
+      gulp.src([MEDIA + 'bower_components/bootstrap/dist/css/bootstrap.min.css', MEDIA + 'bower_components/font-awesome/css/font-awesome.min.css', MEDIA + 'assets/fontastic/styles.css', MEDIA + 'assets/site/styles.css'])
       .pipe(plumber())
       .pipe(concatCss('styles.min.css'))
       .pipe(minifyCss())
@@ -81,3 +81,25 @@ gulp.task('app', function(){
     .pipe(gulp.dest(DESTINO))//.pipe(gulp.dest(DESTINO + 'home'))
     .pipe(livereload());
 });
+
+gulp.task('libros', function(){
+    gulp.start('fonts', 'layout-css', 'layout-js');
+    gulp.src([
+            DESTINO + 'libs.min.js',  
+            MEDIA + 'layouts/app.js',  
+            MEDIA + 'models/usuario.js', 
+            MEDIA + 'views/libros/index.js', 
+            MEDIA + 'views/buscar.js', 
+            MEDIA + 'views/contacto.js',  
+            MEDIA + 'views/registro.js', 
+            MEDIA + 'views/_form_registro.js', 
+            MEDIA + 'views/login.js', 
+            MEDIA + 'views/_form_login.js' , 
+            MEDIA + 'views/_form_contrasenia.js' ,
+            MEDIA + 'routes/libros.js'])
+      //.pipe(uglify())
+      .pipe(plumber())
+      .pipe(concatJs('libros.min.js'))
+      .pipe(gulp.dest(DESTINO))//.pipe(gulp.dest(DESTINO + 'home'))
+      .pipe(livereload());
+  });

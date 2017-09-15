@@ -11,12 +11,14 @@ from main.helper import Helper
 
 def index(request):
 	menu = [
-				 {'url' : '#/', 'nombre' : 'Home'},
-             {'url' : '#/buscar', 'nombre' : 'Buscar'},
-             {'url' : '#/contacto', 'nombre' : 'Contacto'}
-      ]
+		{'url' : 'accesos', 'nombre' : 'Accesos'},
+        {'url' : 'libros', 'nombre' : 'Libros'},
+    ]
+	items = [
+		
+	]
 	data = ''
-	context = {'helper' : Helper(), 'data': data,'menu' : json.dumps(menu)}
+	context = {'helper' : Helper(), 'data': data,'menu' : json.dumps(menu), 'items' : json.dumps(items)}
 	return render(request, 'libros/index.html', context)
 
 def rest(request):

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Servicio de Monta</title>
+  <link rel="shortcut icon" href="{{helper.get('STATICS_URL')}}favicon.ico" type="image/x-icon">
+  {% block css %}{% endblock %}
+  {% block js_top %}{% endblock %}
+</head>
+<body>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <!-- Inicio Modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-container"  id="btnModal" style="display: none" >Launch demo modal</button>
+    <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>
+    <!-- Fin Modal -->
+     <!-- Inicio App -->
+    <div id="header-app"></div>
+    <div id="body-app"></div>
+     <footer>
+            <div class="container">
+                Sitio desarrollado y soportado por Software Web Perú - <a href="http://softweb.pe/">Ir</a>
+                <span id="btn-to-navbar" class="glyphicon glyphicon-upload pull-right" aria-hidden="true" style="font-size: 20px"></span>
+            </div>
+    </footer>
+     <!-- Fin App -->
+    <script id="header-template" type="text/x-handlebars-template">
+        <nav class="navbar navbar-default">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                <div class="icon icon-chiguagua icon-brand"></div>
+                <span>Gestión Chiguagua</span>
+                </a>
+              </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    {% raw %}{{> menu_modulos}}{% endraw %}
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% raw %}{{BASE_URL}}{% endraw %}#/registro">Registrarse</a></li>
+                        <li><a href="{% raw %}{{BASE_URL}}{% endraw %}#/login">Login</a></li>
+                    </ul>
+                </div>
+              <!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+        {% raw %}{{> yield}}{% endraw %}
+    </script>
+    <script id="menu-modulos" type="text/x-handlebars-template">
+        {% raw %}{{{menuModulos}}}{% endraw %}
+    </script>
+	<script id="yield" type="text/x-handlebars-template">
+        {% block content %}{% endblock %}
+    </script>
+	{% block js_bottom %}{% endblock %}
+</body>
+</html>
