@@ -14,6 +14,8 @@ def index(request):
         return redirect(Helper().get('BASE_URL') + 'error/access/404')
 
 def acceder(request):
+    print request.POST.get('usuario')
+    print request.POST.get('contrasenia')
     if request.method == 'POST':
         data = {'mensaje' : True}
         context = {'helper' : Helper(), 'data':  json.dumps(data),'menu' : '', 'items' : ''}
