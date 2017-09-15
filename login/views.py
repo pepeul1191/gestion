@@ -6,6 +6,6 @@ from django.http import HttpResponse
 from main.helper import Helper
 
 def index(request):
-	data = ''
-	context = {'helper' : Helper(), 'data': data,'menu' : '', 'items' : ''}
+	data = {"mensaje" : False}
+	context = {'helper' : Helper(), 'data':  json.dumps(data),'menu' : '', 'items' : ''}
 	return render(request, 'login/index.html', context)

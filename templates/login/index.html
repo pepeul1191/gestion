@@ -4,13 +4,11 @@
 	<style type="text/css"></style>
 {% endblock %}
 {% block js_top %}
-	<script type="text/javascript">
-		var BASE_URL = '{{helper.get("BASE_URL")}}';
-      	var STATICS_URL  = '{{helper.get("STATICS_URL")}}';
-		var MODULOS_JSON = JSON.parse('{{menu|safe}}');
-		var ITEMS_JSON = JSON.parse('{{items|safe}}');
-      	var DATA = JSON.parse('{{data|safe}}'); 
-	</script>
+    <script type="text/javascript">
+        var BASE_URL = '{{helper.get("BASE_URL")}}';
+        var STATICS_URL  = '{{helper.get("STATICS_URL")}}';
+       var DATA = JSON.parse('{{data|safe}}'); 
+    </script>
 {% endblock %}
 {% block js_bottom %}
 	<script type="text/javascript" src="{{helper.get('STATICS_URL')}}dist/login.min.js"></script>
@@ -36,6 +34,7 @@
                             <button class="btn-u pull-right" type="submit" style="width: 100%;  margin-bottom: 15px">Ingresar</button>
                         </div>
                     </div>
+                    {% raw %}{{#if (getValue DATA "mensaje")}}<label class="color-rojo">Usario y/o contraseña incorrectos</label>{{/if}}{% endraw %}
                     <hr>
                     <h4 id="temp">Olvidó su contraseña?</h4>
                     <p>No se preocupe, <a class="color-green" href="#">haga click aquí</a> para reenviar su contraseña.</p>

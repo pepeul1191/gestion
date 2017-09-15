@@ -7,7 +7,12 @@
 	{% block js_top %}{% endblock %}
 <body>
 	<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-	{% block content %}{% endblock %}
-	{% block js %}{% endblock %}
+	<script id="blank-template" type="text/x-handlebars-template">
+		{% raw %}{{> yield}}{% endraw %}
+	</script>
+	<script id="yield" type="text/x-handlebars-template">
+		{% block content %}{% endblock %}
+	</script>
+	{% block js_bottom %}{% endblock %}
 </body>
 </html>

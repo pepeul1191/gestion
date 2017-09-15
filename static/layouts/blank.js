@@ -7,7 +7,6 @@ $( document ).ready(function() {
 	var template = Handlebars.compile(blank_template);
 
 	Handlebars.registerPartial("yield", $("#yield").html());
-
 	var data = {
 		'BASE_URL' : BASE_URL, 
 		'STATICS_URL' : STATICS_URL,
