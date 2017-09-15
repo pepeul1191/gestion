@@ -11,7 +11,7 @@ class EstadoUsuario(Base):
 class Usuario(Base):
     __tablename__ = 'usuarios'
     id = Column(Integer, primary_key = True)
-    nombre = Column(String)
+    usuario = Column(String)
     contrasenia = Column(String)
     correo = Column(String)
     estado_usuario_id = Column(Integer, ForeignKey('estado_usuario.id'))

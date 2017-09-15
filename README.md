@@ -1,14 +1,18 @@
-## Boilerplate DJango Python
+## Gestión SWP - DJango Python
 
 Requisitos de software previamente instalado:
 
 	+ Python 2.7
 	+ Python PIP
-	+ NodeJS - NPM - Gulp
+	+ NodeJS - NPM - Gulp y Bower
 
 Instalación de dependencias:
 
 	$ sudo pip install -r requirements.txt && npm install && bower install 
+
+Para la instalación de PyCrypto, descargar el archivo pycrypto-2.6.1.tar.gz, descomprimir, entrar al directoro e instalar:
+
+	$ sudo python setup.py install
 
 ### Generar 'dist'
 	
