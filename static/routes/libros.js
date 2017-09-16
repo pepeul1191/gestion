@@ -22,10 +22,12 @@ var Router = Marionette.AppRouter.extend({
     categoriaIndex: function(){
         var categoriaView = new CategoriaView({});
         categoriaView.render();
+        categoriaView.mostrarTabla();
     },
     autorIndex: function(){
         var autorView = new AutorView({});
         autorView.render();
+        autorView.mostrarTabla();
     },
     libroIndex: function(){
         var buscarView = new BuscarView({});

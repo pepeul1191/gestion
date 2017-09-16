@@ -25,7 +25,7 @@ def index(request):
 	context = {'helper' : Helper(), 'data': json.dumps(data),'menu' : json.dumps(menu), 'items' : json.dumps(items)}
 	return render(request, 'libros/index.html', context)
 
-def rest(request):
+def categoria_listar(request):
 	conn = engine_libros.connect()
 	stmt = select([Categoria])
 	return HttpResponse(json.dumps([dict(r) for r in conn.execute(stmt)]))

@@ -25,15 +25,15 @@ var CategoriaView = Backbone.View.extend({
 	mostrarTabla: function(){
 	   	var ajax_dao_categoria = new AjaxPython(); 
 	   	ajax_dao_categoria.Constructor("GET", BASE_URL + "libros/categoria/listar", "", false);
-	   	var tablaCategorias = new Grid();
-	   	tablaCategorias.SetTableId("tablaCategorias");
-	   	tablaCategorias.SetTableObj("tablaCategorias");
-	   	tablaCategorias.SetTableHeader(categoria_array_json_th);
-	   	tablaCategorias.SetTableBody(categoria_array_json_td, categoria_array_json_btn_td, ajax_dao_categoria);
-	   	tablaCategorias.SetTableFooter(categoria_array_json_btn, false);
-	   	tablaCategorias.SetLabelMensaje("#txtMensajeRpta");
-	   	tablaCategorias.SetURLGuardar(BASE_URL + "libros/categoria/guardar");
+	   	var tablaCategoria = new Grid();
+	   	tablaCategoria.SetTableId("tablaCategoria");
+	   	tablaCategoria.SetTableObj("tablaCategoria");
+	   	tablaCategoria.SetTableHeader(categoria_array_json_th);
+	   	tablaCategoria.SetTableBody(categoria_array_json_td, categoria_array_json_btn_td, ajax_dao_categoria);
+	   	tablaCategoria.SetTableFooter(categoria_array_json_btn, false);
+	   	tablaCategoria.SetLabelMensaje("#txtMensajeRpta");
+	   	tablaCategoria.SetURLGuardar(BASE_URL + "libros/categoria/guardar");
 
-	   	tablaCategorias.MostrarTable();
+	   	tablaCategoria.MostrarTable();
 	}
 });
