@@ -3,13 +3,18 @@
 */
 
 $( document ).ready(function() {
-	var home_template = $("#template").html();
+	$("#btn-to-navbar").click(function(){
+		$('html, body').animate({
+            scrollTop: $(".navbar").offset().top
+        }, 1000);
+	});
+
+	var home_template = $("#header-template").html();
 	var template = Handlebars.compile(home_template);
 
-	Handlebars.registerPartial("header", $("#header-template").html());
-	Handlebars.registerPartial("breadcrumb", $("#breadcrumb-template").html());
-	Handlebars.registerPartial("contenido", $("#contenido-template").html());
-	Handlebars.registerPartial("footer", $("#footer-template").html());
+	Handlebars.registerPartial("menu_modulos", $("#menu-modulos").html());
+	Handlebars.registerPartial("yield", $("#yield").html());
+	Handlebars.registerPartial("menu_submodulos", $("#menu-submodulos").html());
 
 	var data = {
 		'BASE_URL' : BASE_URL, 
@@ -18,7 +23,7 @@ $( document ).ready(function() {
 	};
 	var template_compiled = template(data);
 
-	$("#app").html(template_compiled);
+	$("#header-app").html(template_compiled);
 });
 
 Handlebars.registerHelper( "menuModulos", function (){

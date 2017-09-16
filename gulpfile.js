@@ -129,11 +129,12 @@ gulp.task('libros', function(){
         MEDIA + 'views/buscar.js', 
         MEDIA + 'views/contacto.js',  
         MEDIA + 'views/registro.js', 
-        MEDIA + 'views/_form_registro.js', 
-        MEDIA + 'views/login.js', 
-        MEDIA + 'views/_form_login.js' , 
-        MEDIA + 'views/_form_contrasenia.js' ,
-        MEDIA + 'routes/libros.js'])
+        //MEDIA + 'views/_form_registro.js', 
+        //MEDIA + 'views/login.js', 
+        //MEDIA + 'views/_form_login.js' , 
+        //MEDIA + 'views/_form_contrasenia.js' ,
+        //MEDIA + 'routes/libros.js'
+    ])
       //.pipe(uglify())
       .pipe(plumber())
       .pipe(concatJs('libros.min.js'))
