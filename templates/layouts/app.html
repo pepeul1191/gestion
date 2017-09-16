@@ -78,7 +78,7 @@
         <!-- Inicio Breadcrumbs -->  
          <div class="breadcrumbs">
             <div class="container">
-                <h1 class="pull-left">@labels.get("tituloSitio")</h1>
+                <h1 class="pull-left">{% raw %}{{getValue DATA "titulo_pagina"}}{% endraw %}</h1>
                 <ul class="pull-right breadcrumb">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="">Features</a></li>
@@ -90,11 +90,14 @@
      </script>
      <script id="contenido-template" type="text/x-handlebars-template">
         <div class="container content">
-            <div class="col-md-12" id="workspace">
-                <!-- Inicio Yield-->
-                @content
-                <!-- Fin Yield-->
-            </div>
+                <div class="col-md-3" id="menu-side">
+                    {% raw %}{{{menuSubModulos}}}{% endraw %}
+                </div>
+                <div class="col-md-9" id="workspace">
+                    <!-- Inicio Yield-->
+                    {% raw %}{{> yield}}{% endraw %}
+                    <!-- Fin Yield-->
+                </div>
         </div>
      </script>
      <script id="footer-template" type="text/x-handlebars-template">
