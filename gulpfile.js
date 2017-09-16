@@ -57,6 +57,32 @@ gulp.task('layout-js', function() {
     .pipe(gulp.dest(DESTINO));
 });
 
+gulp.task('swp-plugins', function(){
+    gulp.src([
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools-core.min.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools.min.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools-interfaces.min.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/jquery.upload.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools.chain.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools.dao.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools.autocomplete.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools.form.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools.observer.js', 
+    		MEDIA + 'bower_components/swp-plugins/assets/js/mootools.grid.js'
+    		])
+     .pipe(plumber())
+     .pipe(concatJs('swp.js'))
+     .pipe(gulp.dest(DESTINO));
+
+     gulp.src([
+    	 	MEDIA + 'bower_components/swp-plugins/assets/css/mootools.autocomplete.css', 
+    	 	MEDIA + 'bower_components/swp-plugins/assets/css/mootools.grid.css', 
+    	 	MEDIA + 'bower_components/swp-plugins/assets/css/mootools.validations.css'])
+     .pipe(plumber())
+     .pipe(concatCss('swp.css'))
+     .pipe(gulp.dest(DESTINO));
+});
+
 gulp.task('layout', ['fonts', 'layout-css', 'layout-js']);
 
 // -----------------------------------------
@@ -120,24 +146,30 @@ gulp.task('app', function(){
 });
 
 gulp.task('libros', function(){
-    gulp.start('fonts', 'layout-css', 'layout-js');
+    gulp.start('fonts', 'layout-css', 'layout-js', 'swp-plugins');
     gulp.src([
         DESTINO + 'libs.min.js',  
+        DESTINO + 'swp.js',
         MEDIA + 'layouts/app.js',  
-        MEDIA + 'models/usuario.js', 
-        MEDIA + 'views/libros/index.js', 
-        MEDIA + 'views/buscar.js', 
-        MEDIA + 'views/contacto.js',  
-        MEDIA + 'views/registro.js', 
-        //MEDIA + 'views/_form_registro.js', 
-        //MEDIA + 'views/login.js', 
-        //MEDIA + 'views/_form_login.js' , 
-        //MEDIA + 'views/_form_contrasenia.js' ,
-        //MEDIA + 'routes/libros.js'
+        //MEDIA + 'views/libros/_table_libro.js', 
+        MEDIA + 'views/libros/_table_autor.js', 
+        MEDIA + 'views/libros/_table_categoria.js', 
+        //MEDIA + 'views/libros/libro.js',  
+        MEDIA + 'views/libros/autor.js', 
+        MEDIA + 'views/libros/categoria.js', 
+        MEDIA + 'routes/libros.js'
     ])
-      //.pipe(uglify())
-      .pipe(plumber())
-      .pipe(concatJs('libros.min.js'))
-      .pipe(gulp.dest(DESTINO))//.pipe(gulp.dest(DESTINO + 'home'))
-      .pipe(livereload());
+    //.pipe(uglify())
+    .pipe(plumber())
+    .pipe(concatJs('libros.min.js'))
+    .pipe(gulp.dest(DESTINO))//.pipe(gulp.dest(DESTINO + 'home'))
+    .pipe(livereload());
+
+    gulp.src([
+        DESTINO + 'styles.min.css', 
+        DESTINO + 'swp.css'
+    ])
+    .pipe(plumber())
+    .pipe(concatCss('libros.min.css'))
+    .pipe(gulp.dest(DESTINO));
   });

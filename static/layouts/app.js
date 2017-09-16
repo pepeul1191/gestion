@@ -32,7 +32,7 @@ Handlebars.registerHelper( "menuModulos", function (){
 	var rpta = '';
 	MODULOS_JSON.forEach(function(modulo) {
 		if (DATA['modulo'] == modulo['nombre']){
-			rpta = rpta + "<li class='dropdown active'><a href='" + BASE_URL + modulo['url'] + "' class='dropdown-toggle' data-toggle='dropdown'>" + modulo['nombre'] + "</a></li>"; 
+			rpta = rpta + "<li class='dropdown active'><a href='" + BASE_URL + modulo['url'] + "' class='dropdown-toggle' data-toggle='dropdown'>" + modulo['nombre'] + "</a></li>";
 		}else{
 			rpta = rpta + "<li class='dropdown'><a href='" + BASE_URL + modulo['url'] + "' class='dropdown-toggle' data-toggle='dropdown'>" + modulo['nombre'] + "</a></li>"; 
 		}
@@ -51,7 +51,7 @@ Handlebars.registerHelper( "menuSubModulos", function (){
 		});
 		rpta = rpta + "</ul></li>";
 	});
-	console.log(rpta);
+
 	return rpta;    
 });
 
