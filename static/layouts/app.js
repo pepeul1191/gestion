@@ -19,12 +19,28 @@ $( document ).ready(function() {
 	var template_compiled = template(data);
 
 	$("#app").html(template_compiled);
+
+	$(".dropdown").click(function(e) {
+		var url = $(e.currentTarget).children().eq(0).attr("href");
+		window.location.href = url;
+	});
 });
 
 Handlebars.registerHelper( "menuModulos", function (){
 	var rpta = '';
+	/**
+			if(menuJsonObject.get("nombre").getAsString().equalsIgnoreCase(nombreModulo)){
+				rpta = rpta + "<li class='dropdown active'><a href='" + Urls.getBaseURL() + menuJsonObject.get("url").getAsString() + 
+						"' class='dropdown-toggle' data-toggle='dropdown'>" + menuJsonObject.get("nombre").getAsString() + "</a></li>";
+			}else{
+				rpta = rpta + "<li class='dropdown'><a href='" + Urls.getBaseURL() + menuJsonObject.get("url").getAsString() + 
+						"' class='dropdown-toggle' data-toggle='dropdown'>" + menuJsonObject.get("nombre").getAsString() + "</a></li>";
+			}
+	 
+	 */
 	MODULOS_JSON.forEach(function(modulo) {
-	    rpta = rpta + '<li><a href="' + BASE_URL + modulo['url'] + '">' + modulo['nombre'] + '</a></li>';
+		//rpta = rpta + '<li><a href="' + BASE_URL + modulo['url'] + '">' + modulo['nombre'] + '</a></li>';
+		rpta = rpta + "<li class='dropdown'><a href='" + BASE_URL + modulo['url'] + "' class='dropdown-toggle' data-toggle='dropdown'>" + modulo['nombre'] + "</a></li>"; 
 	});
 	return rpta;    
 });

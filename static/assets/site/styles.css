@@ -129,7 +129,7 @@ body.header-fixed-space-default { -top: 81px; }
 .boxed-layout.header-fixed .header.header-sticky { left: inherit; width: inherit; }
 /* Fin Header */
 /* Inicio Breadcrumbs */
-.breadcrumbs {overflow: hidden;padding: 10px 0 6px;  border-bottom: solid 1px #eee;background: url(../img/breadcrumbs.png) repeat;}
+.breadcrumbs {overflow: hidden;padding: 10px 0 6px;  border-bottom: solid 1px #eee;}
 .breadcrumbs h1 {color: #666;font-size: 22px;margin-top: 8px;}
 .breadcrumb {top: 10px;z-index: 1;padding-right: 0;background: none;position: relative;  padding: 0px 0px;  margin-bottom: 0px;color: #666;}
  /* Fin Breadcrumbs */
