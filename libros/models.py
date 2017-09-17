@@ -18,19 +18,19 @@ class Extension(Base):
 	id = Column(Integer, primary_key = True)
 	nombre = Column(String)
 
-class Documento(Base):
-	__tablename__ = 'documentos'
+class Libro(Base):
+	__tablename__ = 'libros'
 	id = Column(Integer, primary_key = True)
 	titulo = Column(String)
 	paginas = Column(Integer)
 	extension_id = Column(Integer, ForeignKey('extension.id'))
 
-documentos_categorias = Table('documentos_categorias', Base.metadata,
-    Column('documento_id', Integer, ForeignKey('documento.id')),
+libros_categorias = Table('libros_categorias', Base.metadata,
+    Column('libro_id', Integer, ForeignKey('libro.id')),
     Column('categoria_id', Integer, ForeignKey('categoria.id'))
 )
 
-documentos_autores = Table('documentos_autores', Base.metadata,
-    Column('documento_id', Integer, ForeignKey('documento.id')),
+libros_autores = Table('libros_autores', Base.metadata,
+    Column('libro_id', Integer, ForeignKey('libro.id')),
     Column('autor_id', Integer, ForeignKey('autor.id'))
 )
