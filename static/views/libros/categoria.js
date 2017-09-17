@@ -25,7 +25,6 @@ var CategoriaView = Backbone.View.extend({
 	mostrarTabla: function(){
 	   	var ajax_dao_categoria = new AjaxPython(); 
 	   	ajax_dao_categoria.Constructor("GET", BASE_URL + "libros/categoria/listar", "", false);
-	   	var tablaCategoria = new Grid();
 	   	tablaCategoria.SetTableId("tablaCategoria");
 	   	tablaCategoria.SetTableObj("tablaCategoria");
 	   	tablaCategoria.SetTableHeader(categoria_array_json_th);
