@@ -24,8 +24,8 @@ var AutorView = Backbone.View.extend({
 	},
 	mostrarTabla: function(){
 	   	var ajax_dao_autor = new AjaxPython(); 
-	   	ajax_dao_autor.Constructor("GET", BASE_URL + "libros/autor/listar", "", false);
-	   	var tablaAutor = new Grid();
+		ajax_dao_autor.Constructor("GET", BASE_URL + "libros/autor/listar", "", false);
+		tablaAutor.BorrarTable();
 	   	tablaAutor.SetTableId("tablaAutor");
 	   	tablaAutor.SetTableObj("tablaAutor");
 	   	tablaAutor.SetTableHeader(autor_array_json_th);
