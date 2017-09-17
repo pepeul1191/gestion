@@ -11,7 +11,7 @@ var autor_array_json_td = [
 ];
 
 var autor_array_json_btn_td = [
-	{clase:"fa fa-times",url:"",alt:"Eliminar capa",estilos:"padding-left: 2px;", operacion:"QuitarFila"}
+	{clase:"fa fa-times",url:"",alt:"Eliminar capa",estilos:"padding-left: 30px;", operacion:"QuitarFila"}
 ]; 
 
 var autor_array_json_btn = [

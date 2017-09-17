@@ -179,3 +179,7 @@ body.header-fixed-space-default { -top: 81px; }
 .hr{border: solid 0.5px #eee; margin-bottom: 10px; margin-top: 10px;}
 progress{ height: 31px; margin-left: 20px; }
 /* Fin Foms Nuevos */
+
+/*botones grid*/
+.boton-tabla{color: #FFFFFF !important;background-color: #72c02c !important;border-color: #72c02c !important; font-size: 12px; border-radius: 0px; padding:5px;}
+.boton-tabla:hover{color: #FFFFFF !important; background-color: #5fb611 !important;border-color: #5fb611 !important; font-size: 12px; border-radius: 0px; padding:5px;}
