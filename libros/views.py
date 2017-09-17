@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import json
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from sqlalchemy.sql import select
 from main.database import engine_libros
@@ -13,11 +13,6 @@ def index(request):
 		{'url' : 'accesos', 'nombre' : 'Accesos'},
         {'url' : 'libros', 'nombre' : 'Libros'},
     ]
-	'''
-	items = [
-		{"subtitulo":"Usuarios","items":[{"item":"Listado","url":"accesos/usuarios"}]},{"subtitulo":"Menu","items":[{"item":"Listado","url":"accesos/menus"}]},{"subtitulo":"Acceso a Funciones","items":[{"url":"accesos/permisos","item":"Listado de permisos"},{"item":"Listado de roles","url":"accesos/roles"}]},{"subtitulo":"Logs","items":[{"item":"Logs de errores","url":"accesos/log/errores"},{"url":"accesos/log/accesos","item":"Logs de acceso"},{"item":"Logs de operaciones","url":"accesos/log/operaciones"}]}
-	]
-	'''
 	items = [
 		{"subtitulo":"Libros","items":[{"item":"Gestión de Categorías","url":"libros/#/categoria"},{"url":"libros/#/autor","item":"Gestión de Autores"},{"item":"Gestión de Libros","url":"libros/#"}]}
 	]
@@ -25,12 +20,22 @@ def index(request):
 	context = {'helper' : Helper(), 'data': json.dumps(data),'menu' : json.dumps(menu), 'items' : json.dumps(items)}
 	return render(request, 'libros/index.html', context)
 
-def categoria_listar(request):
-	conn = engine_libros.connect()
-	stmt = select([Categoria])
-	return HttpResponse(json.dumps([dict(r) for r in conn.execute(stmt)]))
-
+def autor_guardar(request):
+	if request.method == 'POST':
+		data =json.loads(request.POST.get('data'))
+		print "1 +++++++++++++++++++++++++++++++++"
+		print data
+		print "2 +++++++++++++++++++++++++++++++++"
+		return HttpResponse('=)')
+	else:
+		return redirect(Helper().get('BASE_URL') + 'error/access/404')
+	
 def autor_listar(request):
 	conn = engine_libros.connect()
 	stmt = select([Autor])
+	return HttpResponse(json.dumps([dict(r) for r in conn.execute(stmt)]))
+
+def categoria_listar(request):
+	conn = engine_libros.connect()
+	stmt = select([Categoria])
 	return HttpResponse(json.dumps([dict(r) for r in conn.execute(stmt)]))

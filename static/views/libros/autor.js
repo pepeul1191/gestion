@@ -32,7 +32,7 @@ var AutorView = Backbone.View.extend({
 	   	tablaAutor.SetTableBody(autor_array_json_td, autor_array_json_btn_td, ajax_dao_autor);
 	   	tablaAutor.SetTableFooter(autor_array_json_btn, false);
 	   	tablaAutor.SetLabelMensaje("#txtMensajeRpta");
-	   	tablaAutor.SetURLGuardar(BASE_URL + "libros/autor/guardar");
+	   	tablaAutor.SetURLGuardar(BASE_URL + "libros/autor/guardar/");
 
 	   	tablaAutor.MostrarTable();
 	}

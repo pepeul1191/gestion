@@ -9,7 +9,8 @@
       	var STATICS_URL  = '{{helper.get("STATICS_URL")}}';
 		var MODULOS_JSON = JSON.parse('{{menu|safe}}');
 		var ITEMS_JSON = JSON.parse('{{items|safe}}');
-      	var DATA = JSON.parse('{{data|safe}}'); 
+		var DATA = JSON.parse('{{data|safe}}'); 
+		var CSRF = '{{ csrf_token }}'; 
 	</script>
 {% endblock %}
 {% block js_bottom %}

@@ -32,7 +32,7 @@ var CategoriaView = Backbone.View.extend({
 	   	tablaCategoria.SetTableBody(categoria_array_json_td, categoria_array_json_btn_td, ajax_dao_categoria);
 	   	tablaCategoria.SetTableFooter(categoria_array_json_btn, false);
 	   	tablaCategoria.SetLabelMensaje("#txtMensajeRpta");
-	   	tablaCategoria.SetURLGuardar(BASE_URL + "libros/categoria/guardar");
+	   	tablaCategoria.SetURLGuardar(BASE_URL + "libros/categoria/guardar/");
 
 	   	tablaCategoria.MostrarTable();
 	}
