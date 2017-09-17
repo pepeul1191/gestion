@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from sqlalchemy.sql import select
 from main.database import engine_libros
-from .models import Categoria
+from .models import Categoria, Autor
 from main.helper import Helper
 
 def index(request):
@@ -28,4 +28,9 @@ def index(request):
 def categoria_listar(request):
 	conn = engine_libros.connect()
 	stmt = select([Categoria])
+	return HttpResponse(json.dumps([dict(r) for r in conn.execute(stmt)]))
+
+def autor_listar(request):
+	conn = engine_libros.connect()
+	stmt = select([Autor])
 	return HttpResponse(json.dumps([dict(r) for r in conn.execute(stmt)]))
