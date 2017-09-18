@@ -23,10 +23,26 @@ def index(request):
 def autor_guardar(request):
 	if request.method == 'POST':
 		data =json.loads(request.POST.get('data'))
-		print "1 +++++++++++++++++++++++++++++++++"
-		print data
-		print "2 +++++++++++++++++++++++++++++++++"
-		return HttpResponse('=)')
+		nuevos = data['nuevos']
+        editados = data['editados']
+        eliminados = data['eliminados']
+
+		try:
+			if len(nuevos) != 0:
+				list_nuevos = []
+				for i in nuevos:
+					'crear'
+			if len(editados) != 0:
+				for i in editados:
+					'editar'
+			if len(eliminados) != 0:
+				for i in eliminados:
+					'eliminar'
+					#session.query(User).filter(User.id==7).delete()
+		except Exception as e:
+			rpta = { 'tipo_mensaje' : 'error', 'mensaje' : ['Se ha producido un error en guardar la tabla de criticidades', e] }
+
+		return HttpResponse(json.dumps(rpta))
 	else:
 		return redirect(Helper().get('BASE_URL') + 'error/access/404')
 	
