@@ -24,8 +24,9 @@ def autor_guardar(request):
 	if request.method == 'POST':
 		data =json.loads(request.POST.get('data'))
 		nuevos = data['nuevos']
-        editados = data['editados']
-        eliminados = data['eliminados']
+		editados = data['editados']
+		eliminados = data['eliminados']
+		rpta = ""
 
 		try:
 			if len(nuevos) != 0:
@@ -38,7 +39,7 @@ def autor_guardar(request):
 			if len(eliminados) != 0:
 				for i in eliminados:
 					'eliminar'
-					#session.query(User).filter(User.id==7).delete()
+			#session.query(User).filter(User.id==7).delete()
 		except Exception as e:
 			rpta = { 'tipo_mensaje' : 'error', 'mensaje' : ['Se ha producido un error en guardar la tabla de criticidades', e] }
 

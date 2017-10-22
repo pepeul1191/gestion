@@ -1,0 +1,21 @@
+{% extends 'layouts/app.html' %}
+{% block css %}
+	<link href="{{helper.get('STATICS_URL')}}dist/accesos.min.css" rel="stylesheet" type="text/css"/>
+	<style type="text/css"></style>
+{% endblock %}
+{% block js_top %}
+	<script type="text/javascript">
+		var BASE_URL = '{{helper.get("BASE_URL")}}';
+      	var STATICS_URL  = '{{helper.get("STATICS_URL")}}';
+		var MODULOS_JSON = JSON.parse('{{menu|safe}}');
+		var ITEMS_JSON = JSON.parse('{{items|safe}}');
+		var DATA = JSON.parse('{{data|safe}}'); 
+		var CSRF = '{{ csrf_token }}'; 
+	</script>
+{% endblock %}
+{% block js_bottom %}
+	<script type="text/javascript" src="{{helper.get('STATICS_URL')}}dist/accesos.min.js"></script>
+{% endblock %}
+{% block content %}
+	<h1>LIBROS/INDEX</h1>
+{% endblock %}
