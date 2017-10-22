@@ -14,4 +14,5 @@ urlpatterns = [
 	url(r'^usuario/listar/$', usuario.listar, name='item_listar'),
 	url(r'^usuario/logs/(?P<usuario_id>[0-9]+)/$', acceso.listar, name='accesos_usuario_listar'),
 	url(r'^usuario/obtener_usuario_correo/(?P<usuario_id>[0-9]+)/$', usuario.obtener_usuario_correo, name='obtener_usuario_correo'),
+	url(r'^usuario/listar_sistemas/(?P<usuario_id>[0-9]+)/$', sistema.usuario, name='sistema_listar_sistemas'),
 ]
