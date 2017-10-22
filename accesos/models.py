@@ -62,3 +62,8 @@ class RolPermiso(Base):
     rol_id = Column(Integer, ForeignKey('roles.id'))
     permiso_id = Column(Integer, ForeignKey('permisos.id'))
     
+class Acceso(Base):
+    __tablename__ = 'accesos'
+    id = Column(Integer, primary_key = True)
+    usuario_id = Column(Integer, ForeignKey('usuarios.id'))
+    momento = Column(String)

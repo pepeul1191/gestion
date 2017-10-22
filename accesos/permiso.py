@@ -14,7 +14,6 @@ def listar(request, sistema_id):
 
 def listar_asociados(request, sistema_id, rol_id):
 	conn = engine_accesos.connect()
-	#execute('SELECT * FROM my_table WHERE my_column = :val', {'val': 5})
 	stmt = """
 		SELECT T.id AS id, T.nombre AS nombre, (CASE WHEN (P.existe = 1) THEN 1 ELSE 0 END) AS existe, T.llave AS llave FROM 
         (
