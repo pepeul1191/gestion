@@ -15,4 +15,6 @@ urlpatterns = [
 	url(r'^usuario/logs/(?P<usuario_id>[0-9]+)/$', acceso.listar, name='accesos_usuario_listar'),
 	url(r'^usuario/obtener_usuario_correo/(?P<usuario_id>[0-9]+)/$', usuario.obtener_usuario_correo, name='obtener_usuario_correo'),
 	url(r'^usuario/listar_sistemas/(?P<usuario_id>[0-9]+)/$', sistema.usuario, name='sistema_listar_sistemas'),
+	url(r'^usuario/listar_roles/(?P<sistema_id>[0-9]+)/(?P<usuario_id>[0-9]+)/$', usuario.listar_roles, name='usuario_listar_roles'),
+	url(r'^usuario/listar_permisos/(?P<sistema_id>[0-9]+)/(?P<usuario_id>[0-9]+)/$', usuario.listar_permisos, name='usuario_listar_permisos'),
 ]
