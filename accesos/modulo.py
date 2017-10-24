@@ -40,7 +40,7 @@ def guardar(request):
                     id = editado['id']
                     nombre = editado['nombre']
                     url = editado['url']
-                    session.query(Modulo).filter_by(id = id).update(editado)
+                    session.query(Modulo).filter_by(id = editado['id']).update(editado)
             if len(eliminados) != 0:
                 for id in eliminados:
                     session.query(Modulo).filter_by(id = id).delete()

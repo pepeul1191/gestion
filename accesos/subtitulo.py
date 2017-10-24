@@ -36,9 +36,7 @@ def guardar(request):
                     array_nuevos.append(temp)
             if len(editados) != 0:
                 for editado in editados:
-                    id = editado['id']
-                    nombre = editado['nombre']
-                    session.query(Subtitulo).filter_by(id = id).update(editado)
+                    session.query(Subtitulo).filter_by(id = editado['id']).update(editado)
             if len(eliminados) != 0:
                 for id in eliminados:
                     session.query(Subtitulo).filter_by(id = id).delete()

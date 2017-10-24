@@ -38,7 +38,7 @@ def guardar(request):
                 for editado in editados:
                     id = editado['id']
                     nombre = editado['nombre']
-                    session.query(Item).filter_by(id = id).update(editado)
+                    session.query(Item).filter_by(id = editado['id']).update(editado)
             if len(eliminados) != 0:
                 for id in eliminados:
                     session.query(Item).filter_by(id = id).delete()

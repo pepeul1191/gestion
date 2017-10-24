@@ -21,6 +21,7 @@ urlpatterns = [
 	# permiso
 	url(r'^permiso/listar/(?P<sistema_id>[0-9]+)/$', permiso.listar, name='permiso_listar'),
 	url(r'^permiso/listar_asociados/(?P<sistema_id>[0-9]+)/(?P<rol_id>[0-9]+)/$', permiso.listar_asociados, name='rol_permisos_asociados'),
+	url(r'^permiso/guardar$', permiso.guardar, name='permiso_guardar'),
 	# usuario
 	url(r'^usuario/listar/$', usuario.listar, name='item_listar'),
 	url(r'^usuario/logs/(?P<usuario_id>[0-9]+)/$', acceso.listar, name='accesos_usuario_listar'),

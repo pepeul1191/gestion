@@ -59,7 +59,7 @@ def guardar(request):
                     nombre = editado['nombre']
                     version = editado['version']
                     repositorio = editado['repositorio']
-                    session.query(Sistema).filter_by(id = id).update(editado)
+                    session.query(Sistema).filter_by(id = editado['id']).update(editado)
             if len(eliminados) != 0:
                 for id in eliminados:
                     session.query(Sistema).filter_by(id = id).delete()
