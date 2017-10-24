@@ -15,6 +15,7 @@ urlpatterns = [
 	url(r'^subtitulo/guardar/$', subtitulo.guardar, name='subtitulo_guardar'),
 	# item
 	url(r'^item/listar/(?P<subtitulo_id>[0-9]+)/$', item.listar, name='item_listar'),
+	url(r'^item/guardar/$', item.guardar, name='item_guardar'),
 	# rol
 	url(r'^rol/listar/(?P<sistema_id>[0-9]+)/$', rol.listar, name='rol_listar'),
 	# permiso
