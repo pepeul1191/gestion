@@ -4,9 +4,9 @@ from sqlalchemy.orm import relationship
 from main.database import Base
 # http://docs.sqlalchemy.org/en/latest/orm/basic_relationships.html
 class EstadoUsuario(Base):
-	__tablename__ = 'estado_usuario'
-	id = Column(Integer, primary_key = True)
-	nombre = Column(String)
+    __tablename__ = 'estado_usuario'
+    id = Column(Integer, primary_key = True)
+    nombre = Column(String)
 
 class Usuario(Base):
     __tablename__ = 'usuarios'
