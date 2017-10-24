@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import json
+import json, traceback
 from main.helper import Helper
-from main.database import engine_accesos
+from main.database import engine_accesos, session_accesos
 from django.http import HttpResponse
 from sqlalchemy.sql import select, text, and_
 from .models import Usuario
@@ -122,3 +122,19 @@ def correo_repetido(request):
                     rpta = r[0]
 
         return HttpResponse(rpta)
+
+def guardar_usuario_correo(request):
+    if request.method == 'POST':
+        usuario = json.loads(request.POST.get('usuario'))
+        rpta = None
+        session = session_accesos()
+
+        try:
+            session.query(Usuario).filter_by(id = usuario['id']).update(usuario)
+            session.commit()
+            rpta = {'tipo_mensaje' : 'success', 'mensaje' : ['Se ha registrado los cambios en los datos generales del usuario']}
+        except Exception as e:
+            session.rollback()
+            rpta = {'tipo_mensaje' : 'error', 'mensaje' : ['Se ha producido un error en guardar los datos generales del usuario', traceback.format_exc()]}
+
+        return HttpResponse(json.dumps(rpta))

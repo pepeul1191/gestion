@@ -189,7 +189,7 @@ var FormUsuarioView = Backbone.View.extend({
 			$.ajax({
 	      		type: "POST",
 	      		url: BASE_URL + "accesos/usuario/guardar_usuario_correo",
-	      		data: "usuario=" + JSON.stringify(this.model.datosGeneralesToJSON()),
+	      		data: {usuario : JSON.stringify(this.model.datosGeneralesToJSON()), csrfmiddlewaretoken: CSRF},
 	      		async: false,
 	      		success: function(data){
 	      			var rpta = JSON.parse(data);
