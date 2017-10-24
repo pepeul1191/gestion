@@ -19,6 +19,7 @@ urlpatterns = [
 	# rol
 	url(r'^rol/listar/(?P<sistema_id>[0-9]+)/$', rol.listar, name='rol_listar'),
 	url(r'^rol/guardar$', rol.guardar, name='rol_guardar'),
+	url(r'^rol/asociar_permisos$', rol.asociar_permisos, name='rol_asociar_permisos'),
 	# permiso
 	url(r'^permiso/listar/(?P<sistema_id>[0-9]+)/$', permiso.listar, name='permiso_listar'),
 	url(r'^permiso/listar_asociados/(?P<sistema_id>[0-9]+)/(?P<rol_id>[0-9]+)/$', permiso.listar_asociados, name='rol_permisos_asociados'),
