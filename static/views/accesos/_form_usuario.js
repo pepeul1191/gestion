@@ -23,7 +23,7 @@ var FormUsuarioView = Backbone.View.extend({
      	$.ajax({
      		type: "POST",
      		url: BASE_URL + "accesos/usuario/nombre_repetido",
-     		data: "data=" + JSON.stringify(usuario_temp),
+     		data: {data: JSON.stringify(usuario_temp), csrfmiddlewaretoken: CSRF}, //"data=" + JSON.stringify(usuario_temp),
      		async: false,
      		success: function(data){
      			if(data >= 1){
@@ -95,7 +95,7 @@ var FormUsuarioView = Backbone.View.extend({
      	$.ajax({
      		type: "POST",
      		url: BASE_URL + "accesos/usuario/correo_repetido",
-     		data: "data=" + JSON.stringify(usuario_temp),
+     		data: {data: JSON.stringify(usuario_temp), csrfmiddlewaretoken: CSRF}, //"data=" + JSON.stringify(usuario_temp),
      		async: false,
      		success: function(data){
      			if(data >= 1){

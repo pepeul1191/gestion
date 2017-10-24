@@ -31,4 +31,6 @@ urlpatterns = [
 	url(r'^usuario/listar_sistemas/(?P<usuario_id>[0-9]+)/$', sistema.usuario, name='sistema_listar_sistemas'),
 	url(r'^usuario/listar_roles/(?P<sistema_id>[0-9]+)/(?P<usuario_id>[0-9]+)/$', usuario.listar_roles, name='usuario_listar_roles'),
 	url(r'^usuario/listar_permisos/(?P<sistema_id>[0-9]+)/(?P<usuario_id>[0-9]+)/$', usuario.listar_permisos, name='usuario_listar_permisos'),
+	url(r'^usuario/nombre_repetido$', usuario.nombre_repetido, name='usuario_nombre_repetido'),
+	url(r'^usuario/correo_repetido$', usuario.correo_repetido, name='usuario_correo_repetido'),
 ]
